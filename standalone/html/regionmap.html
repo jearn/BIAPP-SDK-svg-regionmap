@@ -1,0 +1,30 @@
+<html>
+<head>
+	<script>
+function doTest() {
+	fillRegion("Heilbronn-Franken", "#ff0000")
+//	var element = document.getElementById("Heilbronn-Franken");
+//	element.setAttribute('style', 'fill:yellow;stroke:#000000;stroke-width:1');
+}
+function fillRegion(regionID, regionColor) {
+	var element = document.getElementById(regionID);
+	element.setAttribute('style', 'fill:'+regionColor+';stroke:#000000;stroke-width:1');
+}
+	</script>
+</head>
+<body>
+	<!--img id="regionmap" src="regionmap.svg"/-->
+	<script src="../d3/d3.min.js" charset="utf-8"></script>
+	<script>
+d3.xml("regionmap.svg", "image/svg+xml", function(error, xml) {
+	var element = xml.getElementById("Baden-Württemberg");
+	element.setAttribute('style', 'fill:green;stroke:#000000;stroke-width:1');
+	if (error) throw error;
+		document.body.appendChild(xml.documentElement);
+	});
+	</script>
+	<button onClick="doTest()">Test</button>
+</body>
+</html>
+</body>
+</html>
