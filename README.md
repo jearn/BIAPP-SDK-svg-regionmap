@@ -14,3 +14,5 @@ boad
 An out-of-the-box example which runs standalone in SAP Design Studio after adding the boadsdk extension.
 It shows how to use the regionmap extension to load an SVG file and manipulate it via D3.js (to change filled color) as a simple Design Studio case study.
 While this is a local BIAPP without any datasource, the logic is very simple. In future there might be a CSV file as datasource to show bindings to.
+
+More Inforamtion will be available on http://jearn.net16.net/biapp/svg-regionmap soon.
