@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="iso-8859-15"/>
+	<!--meta charset="iso-8859-15"/-->
+	<meta charset="UTF-8"/>
 	<title>Example SVG map using D3.js to update fill color</title>
 	<script type="text/javascript">
 /**
@@ -42,16 +43,16 @@ function updateFillColor(dom) {
 	fillRegionByPercent("Nordschwarzwald", percent, dom);
 	percent=getPercent();
 	sum+=percent;
-	fillRegionByPercent("Ostwürttemberg", percent, dom);
+	fillRegionByPercent("Ostw&#252;rttemberg", percent, dom);
 	percent=getPercent();
 	sum+=percent;
-	fillRegionByPercent("Stuttgart-Böblingen", percent, dom);
+	fillRegionByPercent("Stuttgart-B&#246;blingen", percent, dom);
 	percent=getPercent();
 	sum+=percent;
 	fillRegionByPercent("Neckar-Fils", percent, dom);
 	percent=getPercent();
 	sum+=percent;
-	fillRegionByPercent("Südlicher_Oberrhein", percent, dom);
+	fillRegionByPercent("S&#252;dlicher_Oberrhein", percent, dom);
 	percent=getPercent();
 	sum+=percent;
 	fillRegionByPercent("Ulm-Biberach", percent, dom);
@@ -68,7 +69,7 @@ function updateFillColor(dom) {
 	sum+=percent;
 	fillRegionByPercent("Hochrhein-Bodensee", percent, dom);
 	var average=Math.floor(sum/14);
-	fillRegionByPercent("Baden-Württemberg", average, dom);
+	fillRegionByPercent("Baden-W&#252;rttemberg", average, dom);
 	showAverage(average);
 }
 /**
@@ -101,6 +102,38 @@ function showAverage(average) {
 	var element = document.getElementById("average");
 	element.innerHTML = "Average: "+average;
 }
+	</script>
+	<script type="text/javascript">
+function handleMouseOver(element) {
+	element.setAttribute("fill-opacity","0.5");
+};
+function handleMouseOut(element) {
+	element.setAttribute("fill-opacity","1")
+};
+function handleMouseClick(element) {
+	alert(element.id);
+};
+function svgMouseOver(evt) {
+	handleMouseOver(evt.target);
+};
+function svgMouseOut(evt) {
+	handleMouseOut(evt.target);
+};
+function svgMouseClick(evt) {
+	handleMouseClick(evt.target);
+};
+function getSvgElementByTextEvent(evt) {
+	return document.getElementById(evt.target.id.substring(11,evt.target.id.lastIndexOf("-X")));
+};
+function svgTextMouseOver(evt) {
+	handleMouseOver(getSvgElementByTextEvent(evt));
+};
+function svgTextMouseOut(evt) {
+	handleMouseOut(getSvgElementByTextEvent(evt));
+};
+function svgTextMouseClick(evt) {
+	handleMouseClick(getSvgElementByTextEvent(evt));
+};
 	</script>
 </head>
 <body>
