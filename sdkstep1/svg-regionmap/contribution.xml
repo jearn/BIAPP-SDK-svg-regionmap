@@ -13,7 +13,9 @@
 		handlerType="div"
 		modes="commons m"    
 		databound="true">
+		<stdInclude kind="d3"/>
 		<jsInclude>res/com.github.jearn.svg.regionmap/js/component.js</jsInclude>
+		<cssInclude>res/com.github.jearn.svg.regionmap/css/component.css</cssInclude>
 		<initialization>
 			<defaultValue property="LEFT_MARGIN">40</defaultValue>
 			<defaultValue property="TOP_MARGIN">40</defaultValue>
