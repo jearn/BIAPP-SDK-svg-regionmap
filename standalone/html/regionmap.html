@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="iso-8859-15"/>
-	<!--meta charset="UTF-8"/-->
+	<!--meta charset="iso-8859-15"/-->
+	<meta charset="UTF-8"/>
 	<title>Example SVG map using D3.js to update fill color</title>
 	<script type="text/javascript">
 /**
@@ -19,7 +19,8 @@ function initialize() {
  * Handles onClick
  **/
 function onClickTest() {
-	updateFillColor(document);
+	alert(escape("Ã¶"));
+	//updateFillColor(document);
 }
 /**
  * Updates all regions
@@ -43,16 +44,16 @@ function updateFillColor(dom) {
 	fillRegionByPercent("Nordschwarzwald", percent, dom);
 	percent=getPercent();
 	sum+=percent;
-	fillRegionByPercent("Ostwürttemberg", percent, dom);
+	fillRegionByPercent("Ostw\u00fcrttemberg", percent, dom);
 	percent=getPercent();
 	sum+=percent;
-	fillRegionByPercent("Stuttgart-Böblingen", percent, dom);
+	fillRegionByPercent("Stuttgart-B\u00f6blingen", percent, dom);
 	percent=getPercent();
 	sum+=percent;
 	fillRegionByPercent("Neckar-Fils", percent, dom);
 	percent=getPercent();
 	sum+=percent;
-	fillRegionByPercent("Südlicher_Oberrhein", percent, dom);
+	fillRegionByPercent("S\u00fcdlicher_Oberrhein", percent, dom);
 	percent=getPercent();
 	sum+=percent;
 	fillRegionByPercent("Ulm-Biberach", percent, dom);
@@ -69,7 +70,7 @@ function updateFillColor(dom) {
 	sum+=percent;
 	fillRegionByPercent("Hochrhein-Bodensee", percent, dom);
 	var average=Math.floor(sum/14);
-	fillRegionByPercent("Baden-Württemberg", average, dom);
+	fillRegionByPercent("Baden-W\u00fcrttemberg", average, dom);
 	showAverage(average);
 }
 /**
