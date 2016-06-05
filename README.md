@@ -1,4 +1,4 @@
-# svg-regionmap
+# BIAPP-SDK-svg-regionmap
 Example of an SVG Regionmap using D3.js to show each region (and overall) status in traffic light colors
 
 standalone
