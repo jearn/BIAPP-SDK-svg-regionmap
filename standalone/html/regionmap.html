@@ -150,7 +150,7 @@ function getPercent() {
  **/
 function showAverage(average) {
 	var element = document.getElementById("average");
-	element.innerHTML = "Durchschnitt: "+average;
+	element.innerHTML = "Average: "+average;
 }
 	</script>
 	<script type="text/javascript">
@@ -189,11 +189,11 @@ function svgTextMouseClick(evt) {
 <body>
 	<!--img id="regionmap" src="regionmap.svg"/-->
 	<script src="../d3/d3.min.js" charset="utf-8" type="text/javascript"></script>
-	<button id="Create" onClick="onClickCreate()">Neue Werte</button>
+	<button id="Create" onClick="onClickCreate()">Create Values</button>
 	<div>
-		Grenzwert unten:
+		Threshold lower:
 		<input id="lower" onblur="onBlurThreshold(this)"/>
-		oen:
+		upper:
 		<input id="upper" onblur="onBlurThreshold(this)"/>
 	<div>
 	<div id="average"></div>
