@@ -5,72 +5,115 @@
 	<meta charset="UTF-8"/>
 	<title>Example SVG map using D3.js to update fill color</title>
 	<script type="text/javascript">
+const percents = Array(15);
+lower = 90;
+upper = 100;
+
+/**
+ * creates Data
+ **/
+function createData() {
+	var sum=0;
+	var percent=getPercent();
+	sum+=percent;
+	percents[0]= percent;
+	percent=getPercent();
+	sum+=percent;
+	percents[1]= percent;
+	percent=getPercent();
+	sum+=percent;
+	percents[2]= percent;
+	percent=getPercent();
+	sum+=percent;
+	percents[3]= percent;
+	percent=getPercent();
+	sum+=percent;
+	percents[4]= percent;
+	percent=getPercent();
+	sum+=percent;
+	percents[5]= percent;
+	percent=getPercent();
+	sum+=percent;
+	percents[6]= percent;
+	percent=getPercent();
+	sum+=percent;
+	percents[7]= percent;
+	percent=getPercent();
+	sum+=percent;
+	percents[8]= percent;
+	percent=getPercent();
+	sum+=percent;
+	percents[9]= percent;
+	percent=getPercent();
+	sum+=percent;
+	percents[10]= percent;
+	percent=getPercent();
+	sum+=percent;
+	percents[11]= percent;
+	percent=getPercent();
+	sum+=percent;
+	percents[12]= percent;
+	percent=getPercent();
+	sum+=percent;
+	percents[13]= percent;
+	var average=Math.floor(sum/14);
+	percents[14]= average;
+	//showAverage(average);
+}
 /**
  * load svg file
  **/
 function initialize() {
 	d3.xml("regionmap.svg", "image/svg+xml", function(error, xml) {
+		createData()
 		updateFillColor(xml);
 		if (error) throw error;
 			document.body.appendChild(xml.documentElement);
 		});
+	fillThreshold("lower", lower);
+	fillThreshold("upper", upper);
 }
 /**
- * Handles onClick
+ * Handles onClick Create
  **/
-function onClickTest() {
+function onClickCreate() {
+	createData();
 	updateFillColor(document);
+}
+/**
+ * Handles onBlur Threshold
+ **/
+function onBlurThreshold(element) {
+	if ("lower"==element.id) {
+		lower = element.value;
+		updateFillColor(document);
+	} else 	if ("upper"==element.id) {
+		upper = element.value;
+		updateFillColor(document);
+	} else {
+		alert(element.id);
+	}
 }
 /**
  * Updates all regions
  **/
 function updateFillColor(dom) {
-	var sum=0;
-	var percent=getPercent();
-	sum+=percent;
-	fillRegionByPercent("Heilbronn-Franken", percent, dom);
-	percent=getPercent();
-	sum+=percent;
-	fillRegionByPercent("Rhein-Neckar-Odenwald", percent, dom);
-	percent=getPercent();
-	sum+=percent;
-	fillRegionByPercent("Mittlerer_Oberrhein", percent, dom);
-	percent=getPercent();
-	sum+=percent;
-	fillRegionByPercent("Ludwigsburg-Rems-Murr", percent, dom);
-	percent=getPercent();
-	sum+=percent;
-	fillRegionByPercent("Nordschwarzwald", percent, dom);
-	percent=getPercent();
-	sum+=percent;
-	fillRegionByPercent("Ostw\u00fcrttemberg", percent, dom);
-	percent=getPercent();
-	sum+=percent;
-	fillRegionByPercent("Stuttgart-B\u00f6blingen", percent, dom);
-	percent=getPercent();
-	sum+=percent;
-	fillRegionByPercent("Neckar-Fils", percent, dom);
-	percent=getPercent();
-	sum+=percent;
-	fillRegionByPercent("S\u00fcdlicher_Oberrhein", percent, dom);
-	percent=getPercent();
-	sum+=percent;
-	fillRegionByPercent("Ulm-Biberach", percent, dom);
-	percent=getPercent();
-	sum+=percent;
-	fillRegionByPercent("Neckar-Alb", percent, dom);
-	percent=getPercent();
-	sum+=percent;
-	fillRegionByPercent("Schwarzwald-Baar-Heuberg", percent, dom);
-	percent=getPercent();
-	sum+=percent;
-	fillRegionByPercent("Bodensee-Oberschwaben", percent, dom);
-	percent=getPercent();
-	sum+=percent;
-	fillRegionByPercent("Hochrhein-Bodensee", percent, dom);
-	var average=Math.floor(sum/14);
-	fillRegionByPercent("Baden-W\u00fcrttemberg", average, dom);
-	showAverage(average);
+	fillRegionByPercent("Heilbronn-Franken", percents[0], dom);
+	fillRegionByPercent("Rhein-Neckar-Odenwald", percents[1], dom);
+	fillRegionByPercent("Mittlerer_Oberrhein", percents[2], dom);
+	fillRegionByPercent("Ludwigsburg-Rems-Murr", percents[3], dom);
+	fillRegionByPercent("Nordschwarzwald", percents[4], dom);
+	fillRegionByPercent("Ostw\u00fcrttemberg", percents[5], dom);
+	fillRegionByPercent("Stuttgart-B\u00f6blingen", percents[6], dom);
+	fillRegionByPercent("Neckar-Fils", percents[7], dom);
+	fillRegionByPercent("S\u00fcdlicher_Oberrhein", percents[8], dom);
+	fillRegionByPercent("Ulm-Biberach", percents[9], dom);
+	fillRegionByPercent("Neckar-Alb", percents[10], dom);
+	fillRegionByPercent("Schwarzwald-Baar-Heuberg", percents[11], dom);
+	fillRegionByPercent("Bodensee-Oberschwaben", percents[12], dom);
+	fillRegionByPercent("Hochrhein-Bodensee", percents[13], dom);
+	fillRegionByPercent("Baden-W\u00fcrttemberg", percents[14], dom);
+	showAverage(percents[14]);
 }
 /**
  * Changes a specific region color
@@ -78,16 +121,23 @@ function updateFillColor(dom) {
 function fillRegionByPercent(regionID, regionPercent, dom) {
 	var element = dom.getElementById(regionID);
 	var regionColor='none';
-	if (regionPercent>=100) {
+	if (regionPercent>=upper) {
 		regionColor='green';
 	}
-	else if (regionPercent<=90) {
+	else if (regionPercent<=lower) {
 		regionColor='red';
 	}
 	else {
 		regionColor='yellow';
 	}
 	element.setAttribute('style', 'fill:'+regionColor+';stroke:#000000;stroke-width:1');
+}
+/**
+ * Sets value of thresholdID
+ **/
+function fillThreshold(thresholdID, value) {
+	var element = document.getElementById(thresholdID);
+	element.value=value;
 }
 /**
  * gets the Data by using Math.random
@@ -100,7 +150,7 @@ function getPercent() {
  **/
 function showAverage(average) {
 	var element = document.getElementById("average");
-	element.innerHTML = "Average: "+average;
+	element.innerHTML = "Durchschnitt: "+average;
 }
 	</script>
 	<script type="text/javascript">
@@ -139,8 +189,14 @@ function svgTextMouseClick(evt) {
 <body>
 	<!--img id="regionmap" src="regionmap.svg"/-->
 	<script src="../d3/d3.min.js" charset="utf-8" type="text/javascript"></script>
-	<script type="text/javascript">initialize();</script>
-	<button id="Test" onClick="onClickTest()">Test</button>
+	<button id="Create" onClick="onClickCreate()">Neue Werte</button>
+	<div>
+		Grenzwert unten:
+		<input id="lower" onblur="onBlurThreshold(this)"/>
+		oen:
+		<input id="upper" onblur="onBlurThreshold(this)"/>
+	<div>
 	<div id="average"></div>
+	<script type="text/javascript">initialize();</script>
 </body>
 </html>
