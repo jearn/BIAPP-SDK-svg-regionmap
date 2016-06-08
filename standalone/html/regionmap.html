@@ -3,9 +3,13 @@
 <head>
 	<!--meta charset="iso-8859-15"/-->
 	<meta charset="UTF-8"/>
+	<!-- Internet Explorer fix. Hoping Edge is better. Who knows? Who cares? /-->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
 	<title>Example SVG map using D3.js to update fill color</title>
 	<script type="text/javascript">
-const percents = Array(15);
+/* Bad Internet Explorer does not support const
+const percents = Array(15);*/
+percents = Array(15);
 lower = 90;
 upper = 100;
 
@@ -195,7 +199,7 @@ function svgTextMouseClick(evt) {
 		<input id="lower" onblur="onBlurThreshold(this)"/>
 		upper:
 		<input id="upper" onblur="onBlurThreshold(this)"/>
-	<div>
+	</div>
 	<div id="average"></div>
 	<script type="text/javascript">initialize();</script>
 </body>
