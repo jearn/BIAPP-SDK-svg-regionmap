@@ -1,0 +1,111 @@
+/**
+ * Class for Key, Value pairs
+ */
+class com.github.jearn.commons.Pair {
+  /**
+   * key of this Pair
+   */
+  String key;
+  /**
+   * value of this Pair
+   */
+  int value;
+}
+
+/**
+ * Array of Pair Objects
+ */
+class com.github.jearn.commons.PairArray extends Array {
+  com.github.jearn.commons.PairArray(com.github.jearn.commons.Pair pair);
+}
+
+/**
+ * Class of this Component
+ */
+class com.github.jearn.svg.regionmap.SVGRegionmap extends Component {
+	/* Here you can place BIAL methods, which will be described later. */ 
+	/** 
+	 * Gets the property Regions 
+	 */
+	com.github.jearn.commons.PairArray getRegions() {*
+			return this.regions;
+	*}
+
+	/** 
+	 * Sets the property Regions
+	 * to determine the style for all IDs by percent
+	 */
+	void setRegions(/* regions */ com.github.jearn.commons.PairArray pairs) {*
+		this.regions=pairs;
+	*}
+
+	/** 
+	 * Gets the property LowerLimit 
+	 */
+	int getLowerLimit() {*
+			return this.lowerLimit;
+	*}
+
+	/** 
+	 * Sets the property LowerLimit
+	 */
+	void setLowerLimit(/* lowerLimit */ int value) {*
+		this.lowerLimit=value;
+	*}
+
+	/** 
+	 * Gets the property UpperLimit 
+	 */
+	int getUpperLimit() {*
+			return this.upperLimit;
+	*}
+
+	/** 
+	 * Sets the property UpperLimit
+	 */
+	void setUpperLimit(/* UpperLimit */ int value) {*
+		this.upperLimit=value;
+	*}
+
+	/** 
+	 * Gets the property LowerColor 
+	 */
+	int getLowerColor() {*
+			return this.lowerColor;
+	*}
+
+	/** 
+	 * Sets the property LowerColor
+	 */
+	void setLowerColor(/* lowerColor */ int value) {*
+		this.lowerColor=value;
+	*}
+
+	/** 
+	 * Gets the property MidColor 
+	 */
+	int getMidColor() {*
+			return this.MidColor;
+	*}
+
+	/** 
+	 * Sets the property MidColor
+	 */
+	void setMidColor(/* MidColor */ int value) {*
+		this.MidColor=value;
+	*}
+
+	/** 
+	 * Gets the property UpperColor 
+	 */
+	int getUpperColor() {*
+			return this.upperColor;
+	*}
+
+	/** 
+	 * Sets the property UpperColor
+	 */
+	void setUpperColor(/* UpperColor */ int value) {*
+		this.upperColor=value;
+	*}
+}

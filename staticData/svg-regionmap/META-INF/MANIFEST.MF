@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Design Studio SDK Extension SVGRegionmap
+Bundle-SymbolicName: com.github.jearn.svg.regionmap;singleton:=true
+Bundle-Version: 1.0
+Bundle-Activator: com.github.jearn.svg.regionmap.Activator
+Bundle-Vendor: com.github.jearn
+Require-Bundle: com.sap.ip.bi.zen.rt.components.sdk,
+ com.sap.ip.bi.zen.rt.components.sdk.eclipse
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sdkExtension
+	xmlns="http://www.sap.com/bi/zen/sdk"
+	id="com.github.jearn.svg.regionmap"
+	title="Design Studio SDK Extension SVGRegionmap"
+	version="1.0"
+	vendor="com.github.jearn">
+	<component
+		id="SVGRegionmap"
+		title="SVGRegionmap"
+		icon="res/com.github.jearn.svg.regionmap/component.png"
+		handlerType="div"
+		modes="commons m"
+		databound="true">
+		<requireJs modes="commons m">res/com.github.jearn.svg.regionmap/js/component</requireJs>  
+		<!--stdInclude kind="d3"/>
+		<jsInclude>res/library.d3.svg.regionmap/js/component.js</jsInclude>
+		<jsInclude>res/com.github.jearn.svg.regionmap/js/component.js</jsInclude>
+		<cssInclude>res/com.github.jearn.svg.regionmap/css/component.css</cssInclude-->
+		<!--property
+			id="svgurl"
+			title="SVG"
+			type="Url">
+		</property-->
+		<property id="regions" type="Array" title="Regions" group="Display" tooltip="Array for Coloring regions of SVG file">
+			<property id="pair" type="Object" title="Pair">
+				<property id="key" type="String" title="Key" tooltip="ID of region in SVG file" />
+				<property id="value" type="int" title="Value" tooltip="Value for coloring this region" />
+			</property>
+		</property>
+		<property id="lowerLimit" type="int" title="Lower limit" tooltip="lower/equal this Limit is red" />
+		<property id="upperLimit" type="int" title="Upper limit" tooltip="upper/equal this Limit is green" />
+		<property id="lowerColor" type="String" title="Color lower values" tooltip="Color for values lower or equal the lower Limit, e.g. red" />
+		<property id="midColor" type="String" title="Color midrange values" tooltip="Color for values between lower and upper Limit, e.g. yellow" />
+		<property id="upperColor" type="String" title="Color upper values" tooltip="Color for values upper or equal the upper Limit, e.g. green" />
+		<initialization>
+			<defaultValue property="lowerLimit">90</defaultValue>
+			<defaultValue property="upperLimit">100</defaultValue>
+			<defaultValue property="lowerColor">red</defaultValue>
+			<defaultValue property="midColor">yellow</defaultValue>
+			<defaultValue property="upperColor">green</defaultValue>
+			<defaultValue property="LEFT_MARGIN">40</defaultValue>
+			<defaultValue property="TOP_MARGIN">40</defaultValue>
+			<defaultValue property="WIDTH">100</defaultValue>
+			<defaultValue property="HEIGHT">50</defaultValue>
+			<defaultValue property="image"></defaultValue>
+		</initialization>
+	</component>
+</sdkExtension>
