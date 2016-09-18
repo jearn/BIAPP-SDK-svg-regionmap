@@ -5,10 +5,16 @@ standalone
 An out-of-the-box example which runs standalone in an up-to-date Browser.
 It shows how to load an SVG file and manipulate it via D3.js (to change filled color) as a simple HTML case study.
 
+boadsdk Part 1 (with static Data)
+An out-of-the-box example which runs as a component in DesignStudio.
+It shows how to load an SVG file and manipulate it via D3.js (to change filled color) as a simple DesignStudio case study with static data entered through the Properties Tab.
+This component has some kind of BIAL extensions as ZTL, too. In the upcoming ZTL Version this extensions might be changed.
+
 To be done:
 boadsdk
 The Design Studio SDK extension to load an SVG file and manipulate it via D3.js.
 It enables you to change the Style of an SVG path. For example it changes the fill color.
+Data will be provided through 3 Types: static (Proprty Tab), dynamic (BIAL / ZTL) and DataSource.
 
 boad
 An out-of-the-box example which runs standalone in SAP Design Studio after adding the boadsdk extension.
