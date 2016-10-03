@@ -10,6 +10,12 @@ An out-of-the-box example which runs as a component in DesignStudio.
 It shows how to load an SVG file and manipulate it via D3.js (to change filled color) as a simple DesignStudio case study with static data entered through the Properties Tab.
 This component has some kind of BIAL extensions as ZTL, too. In the upcoming ZTL Version this extensions might be changed.
 
+boadsdk Part 2 (with dynamic Data 1)
+An out-of-the-box example which runs as a component in DesignStudio.
+NOw with basic support to dynamically manipulate the data through some BIAL extensions as ZTL.
+It shows how to load an SVG file and manipulate it via D3.js (to change filled color) as a simple DesignStudio case study with static data entered through the Properties Tab.
+In the upcoming ZTL Version this extensions might be changed for better support to dynamically manipulate data.
+
 To be done:
 boadsdk
 The Design Studio SDK extension to load an SVG file and manipulate it via D3.js.
